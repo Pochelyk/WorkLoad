@@ -1,0 +1,6 @@
+D:\Visual Studio2017 Work\ConsoleWorkPrograms\WorkLoad\WorkLoad\bin\Debug\WorkLoad.exe.config
+D:\Visual Studio2017 Work\ConsoleWorkPrograms\WorkLoad\WorkLoad\bin\Debug\WorkLoad.exe
+D:\Visual Studio2017 Work\ConsoleWorkPrograms\WorkLoad\WorkLoad\bin\Debug\WorkLoad.pdb
+D:\Visual Studio2017 Work\ConsoleWorkPrograms\WorkLoad\WorkLoad\obj\Debug\WorkLoad.csprojResolveAssemblyReference.cache
+D:\Visual Studio2017 Work\ConsoleWorkPrograms\WorkLoad\WorkLoad\obj\Debug\WorkLoad.exe
+D:\Visual Studio2017 Work\ConsoleWorkPrograms\WorkLoad\WorkLoad\obj\Debug\WorkLoad.pdb
