@@ -12,11 +12,10 @@ namespace WorkLoad
         public double L;
         public double L1;
         public double L2;
-        public double L3;
         public double L4;
         public double L5;
         public double q1;
-        //public double m;
+
         public double F()
         {
             return f * (L - L2);

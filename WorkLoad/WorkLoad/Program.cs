@@ -34,7 +34,7 @@ namespace WorkLoad
             F.f = ReadDouble("Введите силу постоянной нагрузки F=кН:");
             F.L2 = ReadDouble("Введите расстояние от начала отрезка:");
             return F;
-        }
+        }       
         static Force MakeForce()
         {
             Force force;
@@ -57,8 +57,6 @@ namespace WorkLoad
         }
         static void Main(string[] args)
         {
-            double Stem = ReadDouble("Введите длину отрезка:");
-
             Console.WriteLine("Введите тип левого защемления: П-подвижная опора; Н-неподвижная опора");
             string Left = Console.ReadLine();
             double L = ReadDouble("Введите расстояние от начала отрезка до опоры:");
@@ -77,12 +75,11 @@ namespace WorkLoad
                 Force force = null;
                 do
                 {
-                    force = MakeForce();
+                 force = MakeForce();
                 } while (force == null);
-
                 forces[i] = force;
             }
-            Console.ReadKey();
+             Console.ReadKey();
         }
     }
 }
