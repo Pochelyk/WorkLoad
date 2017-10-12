@@ -23,50 +23,145 @@ namespace WorkLoad
         static LongBalk MaKeLength()
         {
             LongBalk longBalk = new LongBalk();
-            longBalk.Length = ReadDouble("Введите длину балки");
+            longBalk.Length = ReadDouble("Enter the size balk ");
             return longBalk;
         }
-        static Force MakeForce()
+
+
+        static void Force (Force force)
         {
-            Force force = new Force();
-            force.Value = ReadDouble("Введите значение");
-            force.Angle = ReadDouble("Введите угол");
-            return force;
+            force.Value = ReadDouble("Enter the value");
+            force.Angle = ReadDouble("Enter the Angle");
         }
+
         static Moment MakeMoment()
         {
             Moment moment = new Moment();
-            moment.Value = ReadDouble("Введите значение");
+            moment.Value = ReadDouble("Enter the value");
             return moment;
         }
 
-        static void FixedPillar(Pillar pillar)
+        static FixedPillar MaKeFixed()
         {
-            pillar.Distance = ReadDouble("Введите рассстояние ");
+            FixedPillar fix = new FixedPillar();
+            fix.Distance = ReadDouble("Enter the value ");
+            return fix;
         }
-        static void FloatingPillar(Pillar pillar)
+        static FloatingPillar MakeFloat()
         {
-            pillar.Distance = ReadDouble("Введите рассстояние ");
+            FloatingPillar floating = new FloatingPillar();
+            floating.Distance = ReadDouble("Enter the value ");
+            return floating;
         }
-        static void Anchorage(Pillar pillar)
+        static Anchorage MakeAnchorage()
         {
-            pillar.Distance = ReadDouble("Введите рассстояние ");
-        }
-
-
-
-        static void UniformlyDistributed(Loading loading)
-        {
-            loading.Distance = ReadDouble("Введите значение");
-        }
-        static void TransverseLoad(Loading loading)
-        {
-            loading.Distance = ReadDouble("Введите значение");
-        }
-        static void MomentLoad(Loading loading)
-        {
-            loading.Distance = ReadDouble("Введите значение");
+            Anchorage anchorage = new Anchorage();
+            anchorage.Distance = ReadDouble("Enter the value ");
+            return anchorage;
         }
 
+        static Pillar MakePillar()
+        {
+            Pillar pillar;
+            Console.WriteLine("enter the type of support:F=Fixed/ D=Float/ A=Anchorage ");
+            string size = Console.ReadLine();
+            switch (size)
+            {
+                case "F":
+                    pillar = MaKeFixed();
+                    break;
+                case "D":
+                    pillar = MakeFloat();
+                    break;
+                case "A":
+                    pillar = MakeAnchorage();
+                    break;
+                default:
+                    pillar = null;
+                    Console.WriteLine("you clicked an unknown letter!");
+                    break;
+            }
+            return pillar;
+        }
+        
+        static UniformlyDistributed MakeUniform()
+        {
+            UniformlyDistributed uniform = new UniformlyDistributed();
+            uniform.Distance = ReadDouble("Enter the value");
+            return uniform;
+        }
+        static TransverseLoad MakeTransvers()
+        {
+            TransverseLoad transvers = new TransverseLoad();
+            transvers.Distance = ReadDouble("Enter the value");
+            return transvers;
+        }
+        static MomentLoad MakeMomentLoad()
+        {
+            MomentLoad momentload = new MomentLoad();
+            momentload.Distance = ReadDouble("Enter the value");
+            return momentload;
+        }
+
+        static Loading MakeLoading()
+        {
+            Loading loading;
+            Console.WriteLine("enter the type load: U-UniformlyDistributed /T-TransverseLoad M-MomentLoad ");
+            string size = Console.ReadLine();
+            switch (size)
+            {
+                case "U":
+                    loading = MakeUniform();
+                    break;
+                case "T":
+                    loading = MakeTransvers();
+                    break;
+                case "M":
+                    loading = MakeMomentLoad();
+                    break;
+                default:
+                    loading = null;
+                    Console.WriteLine("you clicked an unknown letter!");
+                    break;
+            }
+            return loading;
+        }
+        static void Main(string[] args)
+        {
+            //   MaKeLength();
+
+            Console.WriteLine("enter the number of supports:");
+            string number = Console.ReadLine();
+            int N = Convert.ToInt32(number);
+
+            Pillar[] pillars = new Pillar[N];
+            for (int i = 0; i < pillars.Length; i++)
+            {
+                Pillar pillar = null;
+                do
+                {
+                     pillar= MakePillar();
+                }
+                while (pillar == null);
+                pillars[i] = pillar;
+            }
+
+            Console.WriteLine("enter the number of loads:");
+            string loads = Console.ReadLine();
+            int L = Convert.ToInt32(loads);
+
+            Loading[] loadings = new Loading[L];
+            for (int i = 0; i < loadings.Length; i++)
+            {
+                Loading loading = null;
+                do
+                {
+                    loading = MakeLoading();
+                }
+                while (loading == null);
+                loadings[i] = loading;
+            }
+            Console.ReadKey();
+        }
     }
 }
